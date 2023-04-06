@@ -6,5 +6,16 @@ use Illuminate\Http\Request;
 
 class SeriesController extends Controller
 {
-    //
+    public function index()
+    {
+            $series = [
+                'Punisher',
+                'The Big Bang Theory',
+                'You',
+                'House of Dragons',
+                'Dexter'
+            ];
+
+            return view('series.index')->with('series', $series);
+    }
 }
