@@ -18,16 +18,4 @@ Route::get('/', function () {
     return redirect('/series');
 });
 
-//Modo novo do Laravel 9
-//Route::resource('/series', SeriesController::class);
-
-
-Route::controller(SeriesController::class)->group(function () {
-    Route::get('/series', 'index')->name('series.index');
-    Route::get('/series/criar', 'create')->name('series.create');
-    Route::post('/series/salvar', 'store')->name('series.store');
-});
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::resource('/series', SeriesController::class);
